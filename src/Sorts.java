@@ -2,7 +2,7 @@ import javax.tools.Tool;
 import java.util.Scanner;
 
 public class Sorts {
-    int counterBubble;
+
 
     public static void bubbleSort(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
