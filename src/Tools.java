@@ -79,11 +79,26 @@ public class Tools {
         System.out.println("\n" + STAR_LINE);
     }
 
+    public static void printOneDArray(boolean[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf(arr[i] + " ");
+        }
+        System.out.println("\n" + STAR_LINE);
+    }
+
     private static int[] getIntArray(int size, int min, int max) {
         Random r = new Random();
         int[] arr = new int[size];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = r.nextInt(min, max);
+        }
+        return arr;
+    }
+
+    public static int[] getSortintArray(int size, int min) {
+        int[] arr = new int[size];
+        for (int i = min; i < arr.length; i++) {
+            arr[i] = i;
         }
         return arr;
     }

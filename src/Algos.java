@@ -1,11 +1,10 @@
 import java.util.Scanner;
 
 public class Algos {
+    protected static Scanner in = new Scanner(System.in);
 
     public static void binarySearch() {
-
-        Scanner in = new Scanner(System.in);
-
+        System.out.println("Загадайте число, а программа его отгадает!");
         System.out.println("Введите нижнюю границу поиска");
         int min = 0;
         min = in.nextInt();
@@ -18,10 +17,8 @@ public class Algos {
         int counterIter = 0;
 
         System.out.println("Загадайте число от " + min + " до " + max);
-        String crutch = "1";
-        String answer;
-
-        while (crutch != "=") {
+        String answer = "";
+        while (answer != "=") {
             counterIter++;
             System.out.println("Ваше число - " + middle + "?\n" +
                     "Нажмите \"+\", если загаданное число больше \n " +
@@ -43,6 +40,28 @@ public class Algos {
                     return;
                 default:
                     System.out.println("Попробуйте еще раз!");
+            }
+        }
+    }
+
+    public static void sieveEratosthenes() {
+        System.out.println("Введите границу поиска");
+        int size = in.nextInt();
+        boolean[] Barray = new boolean[size];
+        int[] Iarray = Tools.getSortintArray(size, 2);
+        for (int i = 0; i < Barray.length; i++) {
+            Barray[i] = true;
+        }
+        for (int i = 2; i < size; i++) {
+            if (Barray[i] != false) {
+                for (int j = i; i * j < size; j++) {
+                    Barray[i * j] = false;
+                }
+            }
+        }
+        for (int i = 2; i < Barray.length; i++) {
+            if (Barray[i] == true) {
+                System.out.print(i + " ");
             }
         }
     }
